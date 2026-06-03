@@ -1,0 +1,158 @@
+## ASP.NET Core
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build Results of .NET Core project
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# NuGet Symbol Packages
+*.snupkg
+
+## Kentico Xperience Specific
+
+# App_Data - runtime generated content
+App_Data/
+!App_Data/CMSModules/
+
+# CMS temporary files
+CMS/App_Data/
+CMSTemp/
+CMSVirtualFiles/
+
+# Old Media Library (if used)
+media/
+
+# Azure deployment files
+*.publishsettings
+*.pubxml
+*.azurePubxml
+
+# CI/CD
+*.deployment
+*.deployproj
+*.pubxml.user
+
+## IDEs and Editors
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Visual Studio
+*.rsuser
+*.suo
+*.user
+*.sln.docstates
+.vs/
+
+## OS Generated
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+## Logs and Databases
+
+*.log
+*.sqlite
+*.db
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+## Temporary Files
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Cache files
+*.cache
+
+# Runtime configuration
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+## Custom Project Exclusions
+
+# Static web assets
+staticwebassets/
+*.staticwebassets.runtime.json
+*.staticwebassets.endpoints.json
+
+# Generated files
+*.generated.cs
