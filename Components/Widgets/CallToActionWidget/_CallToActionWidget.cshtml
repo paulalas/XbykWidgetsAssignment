@@ -1,0 +1,168 @@
+@using Components.Widgets.CallToActionWidget
+
+@model CallToActionWidgetViewModel
+
+<style>
+    .cta-widget {
+        min-height: 100vh;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1.5rem;
+    }
+
+    .cta-container {
+        max-width: 1280px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .cta-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .cta-badge {
+        background-color: #eff6ff;
+        color: #3b82f6;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 0.375rem 1rem;
+        border-radius: 9999px;
+    }
+
+    .cta-heading {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #111827;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .cta-button {
+        background-color: #3b82f6;
+        color: white;
+        font-weight: 500;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+
+    .cta-button:hover {
+        background-color: #2563eb;
+        color: white;
+        text-decoration: none;
+    }
+
+    .cta-right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cta-image-wrapper {
+        position: relative;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .cta-image-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 90%;
+        height: 85%;
+        background-color: #ecfeff;
+        border-top-left-radius: 120px;
+        border-bottom-left-radius: 80px;
+        z-index: -1;
+    }
+
+    .cta-image {
+        width: 100%;
+        max-width: 32rem;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Responsive */
+    @@media (min-width: 768px) {
+        .cta-container {
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        .cta-heading {
+            font-size: 3rem;
+        }
+
+        .cta-right {
+            justify-content: flex-end;
+        }
+    }
+
+    @@media (min-width: 1024px) {
+        .cta-widget {
+            padding: 3rem 5rem;
+        }
+
+        .cta-heading {
+            font-size: 3.75rem;
+        }
+    }
+</style>
+
+<div class="cta-widget">
+    <div class="cta-container">
+        <!-- Left Content -->
+        <div class="cta-left">
+            @if (!string.IsNullOrWhiteSpace(Model.Title))
+            {
+                <span class="cta-badge">@Model.Title</span>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(Model.Description))
+            {
+                <h1 class="cta-heading">
+                    @foreach (var line in Model.Description.Split(new[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        @line<br />
+                    }
+                </h1>
+            }
+
+            @if (!string.IsNullOrWhiteSpace(Model.ButtonText))
+            {
+                <a href="@Model.ButtonLink" class="cta-button">
+                    @Model.ButtonText
+                </a>
+            }
+        </div>
+
+        <!-- Right Image -->
+        @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+        {
+            <div class="cta-right">
+                <div class="cta-image-wrapper">
+                    <!-- Light blue background shape -->
+                    <div class="cta-image-bg"></div>
+                    <img src="@Model.ImageUrl" 
+                         alt="@Model.Title" 
+                         class="cta-image"
+                         loading="lazy" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

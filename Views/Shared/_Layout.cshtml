@@ -1,0 +1,115 @@
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Widgets</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+    
+    <page-builder-styles />
+    
+    <style>
+        .main-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .main-footer {
+            background-color: #1a2332;
+            color: #fff;
+            margin-top: auto;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-4" href="/">
+                    <i class="bi bi-grid-3x3-gap-fill me-2"></i>Widgets
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content (from page template) -->
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="main-footer py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-grid-3x3-gap-fill me-2"></i>Widgets
+                    </h5>
+                    <p class="text-white-50">
+                        Build amazing experiences with our flexible widget system powered by Xperience by Kentico.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="/about" class="text-white-50 text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="/contact" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">Follow Us</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-twitter fs-5"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-instagram fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary" />
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2026 Widgets. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <page-builder-scripts />
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

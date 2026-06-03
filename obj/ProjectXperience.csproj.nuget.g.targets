@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)yarp.reverseproxy\2.3.0\buildTransitive\net8.0\Yarp.ReverseProxy.targets" Condition="Exists('$(NuGetPackageRoot)yarp.reverseproxy\2.3.0\buildTransitive\net8.0\Yarp.ReverseProxy.targets')" />
+    <Import Project="$(NuGetPackageRoot)system.clientmodel\1.10.0\buildTransitive\net10.0\System.ClientModel.targets" Condition="Exists('$(NuGetPackageRoot)system.clientmodel\1.10.0\buildTransitive\net10.0\System.ClientModel.targets')" />
+    <Import Project="$(NuGetPackageRoot)openai\2.10.0\buildTransitive\netstandard2.0\OpenAI.targets" Condition="Exists('$(NuGetPackageRoot)openai\2.10.0\buildTransitive\netstandard2.0\OpenAI.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\8.0.26\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.fileproviders.embedded\8.0.26\build\netstandard2.0\Microsoft.Extensions.FileProviders.Embedded.targets')" />
+    <Import Project="$(NuGetPackageRoot)magick.net-q8-anycpu\14.13.0\buildTransitive\netstandard20\Magick.NET-Q8-AnyCPU.targets" Condition="Exists('$(NuGetPackageRoot)magick.net-q8-anycpu\14.13.0\buildTransitive\netstandard20\Magick.NET-Q8-AnyCPU.targets')" />
+    <Import Project="$(NuGetPackageRoot)hotchocolate.data\15.1.16\build\HotChocolate.Data.targets" Condition="Exists('$(NuGetPackageRoot)hotchocolate.data\15.1.16\build\HotChocolate.Data.targets')" />
+    <Import Project="$(NuGetPackageRoot)hotchocolate.aspnetcore\15.1.16\build\HotChocolate.AspNetCore.targets" Condition="Exists('$(NuGetPackageRoot)hotchocolate.aspnetcore\15.1.16\build\HotChocolate.AspNetCore.targets')" />
+    <Import Project="$(NuGetPackageRoot)kentico.xperience.admin\31.5.1\build\Kentico.Xperience.Admin.targets" Condition="Exists('$(NuGetPackageRoot)kentico.xperience.admin\31.5.1\build\Kentico.Xperience.Admin.targets')" />
+  </ImportGroup>
+</Project>

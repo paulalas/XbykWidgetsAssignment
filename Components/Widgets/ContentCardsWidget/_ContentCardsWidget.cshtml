@@ -1,0 +1,174 @@
+@using Components.Widgets.ContentCardsWidget
+
+@model ContentCardsWidgetViewModel
+
+<style>
+    .content-cards-section {
+        min-height: 100vh;
+        background-color: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .content-cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 1280px;
+        width: 100%;
+    }
+
+    .content-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.5rem;
+        background-color: #0f0a2e;
+        background-size: cover;
+        background-position: center;
+        padding: 2rem;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .content-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 10, 46, 0.7);
+        z-index: 1;
+    }
+
+    .content-card-content {
+        position: relative;
+        z-index: 10;
+    }
+
+    .content-card-subtitle {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .content-card-title {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .content-card-description {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.875rem;
+        line-height: 1.6;
+        max-width: 28rem;
+        margin-bottom: 2rem;
+    }
+
+    .content-card-button {
+        display: inline-block;
+        background-color: #007AFF;
+        color: white;
+        font-weight: 500;
+        padding: 0.875rem 2rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .content-card-button:hover {
+        background-color: #0056CC;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* Responsive */
+    @@media (min-width: 768px) {
+        .content-cards-section {
+            padding: 2rem;
+        }
+
+        .content-card {
+            padding: 3rem;
+        }
+
+        .content-card-title {
+            font-size: 3rem;
+        }
+    }
+
+    @@media (min-width: 1024px) {
+        .content-cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .empty-state {
+        text-align: center;
+        color: #6b7280;
+        padding: 3rem;
+        background: white;
+        border-radius: 1rem;
+    }
+</style>
+
+<div class="content-cards-section">
+    @if (Model.Cards.Any())
+    {
+        <div class="content-cards-grid">
+            @foreach (var card in Model.Cards)
+            {
+                var backgroundStyle = !string.IsNullOrWhiteSpace(card.BackgroundImageUrl)
+                    ? $"background-image: url('{card.BackgroundImageUrl}');"
+                    : "";
+
+                <div class="content-card" style="@backgroundStyle">
+                    <div class="content-card-content">
+                        @if (!string.IsNullOrWhiteSpace(card.Subtitle))
+                        {
+                            <p class="content-card-subtitle">@card.Subtitle</p>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(card.Title))
+                        {
+                            <h2 class="content-card-title">
+                                @foreach (var line in card.Title.Split(new[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    @line<br />
+                                }
+                            </h2>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(card.Description))
+                        {
+                            <p class="content-card-description">@card.Description</p>
+                        }
+
+                        @if (!string.IsNullOrWhiteSpace(card.ButtonName))
+                        {
+                            <a href="@card.ButtonLink" class="content-card-button">
+                                @card.ButtonName
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+            <p>No content cards available. Please create ContentCards pages in the content tree.</p>
+        </div>
+    }
+</div>

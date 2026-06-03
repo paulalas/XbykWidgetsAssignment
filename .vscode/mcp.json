@@ -1,0 +1,9 @@
+{
+	"servers": {
+		"kentico": {
+			"url": "https://docs.kentico.com/mcp",
+			"type": "http"
+		}
+	},
+	"inputs": []
+}
